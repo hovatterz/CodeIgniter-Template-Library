@@ -37,6 +37,7 @@ Ideally, you would have a base controller for including things like the jQuery l
     <html>
 	    <head>
 		    <meta charset="UTF-8" />
+                    <?php echo $meta_tags; ?>
 		
 		    <title><?php echo $title; ?></title>
 

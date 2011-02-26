@@ -12,6 +12,7 @@ class Template
 	private $_base_title;
 	private $_body_classes = array();
 	private $_javascripts = array();
+	private $_meta_tags = array();
 	private $_stylesheets = array();
 	private $_template_name;
 	private $_template_data;
@@ -44,7 +45,7 @@ class Template
 	}
 	
 	/**
-	 * Add a javascript includeIf you specify external as true it will
+	 * Add a javascript include. If you specify external as true it will
 	 * use a URL instead of looking in your assets folder.
 	 *
 	 * @param string $javascript_name
@@ -53,6 +54,18 @@ class Template
 	public function add_javascript($javascript_name, $external = FALSE)
 	{
 		$this->_javascripts[] = $external ? $javascript_name : base_url() . $this->_assets_dir . 'js/' . $javascript_name;
+		return $this;
+	}
+	
+	/**
+	 * Add a meta tag
+	 *
+	 * @param string $name 
+	 * @param string $content 
+	 */
+	public function add_meta_tag($name, $content)
+	{
+		$this->_meta_tags[] = '<meta name="' . $name . '" content="' . $content . '" />';
 		return $this;
 	}
 	
@@ -74,7 +87,7 @@ class Template
 	}
 	
 	/**
-	 * Adds a title segment
+	 * Add a title segment
 	 *
 	 * @param string $segment 
 	 */
@@ -85,13 +98,15 @@ class Template
 	}
 	
 	/**
-	 * Builds out the view
+	 * Build out the view
 	 *
 	 * @param string $view_name 
 	 * @param array $view_data 
 	 */
 	public function build($view_name, $view_data = array())
 	{
+		$this->_template_data['meta_tags'] = implode("\r\n", $this->_meta_tags);
+		
 		$this->_template_data['title'] = $this->_base_title;
 		if (count($this->_title_segments) > 0)
 		{
@@ -117,7 +132,7 @@ class Template
 	}
 	
 	/**
-	 * Sets the base title
+	 * Set the base title
 	 *
 	 * @param string $base_title 
 	 */
@@ -128,7 +143,7 @@ class Template
 	}
 	
 	/**
-	 * Sets the template file name
+	 * Set the template file name
 	 *
 	 * @param string $template_name 
 	 */
@@ -139,7 +154,7 @@ class Template
 	}
 	
 	/**
-	 * Sets the title separator
+	 * Set the title separator
 	 *
 	 * @param string $title_separator 
 	 */
