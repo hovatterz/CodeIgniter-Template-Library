@@ -20,7 +20,7 @@ Should be easy enough to figure out how to change if that's not the case. Here i
             $this->template
                 ->add_title_segment('About Us')
                 ->add_javascript('jquery.js')
-                ->add_stylesheet('screen.js');
+                ->add_stylesheet('screen.css');
         }
 
         public function index()
@@ -56,6 +56,5 @@ Ideally, you would have a base controller for including things like the jQuery l
 TODO:
 
 * Make config/template.php not required
-* Meta tag functionality
 
 Enjoy.
