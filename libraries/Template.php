@@ -107,11 +107,12 @@ class Template
 	{
 		$this->_template_data['meta_tags'] = implode("\r\n", $this->_meta_tags);
 		
-		$this->_template_data['title'] = $this->_base_title;
+		$this->_template_data['title'] = '';
 		if (count($this->_title_segments) > 0)
 		{
-			$this->_template_data['title'] .= $this->_title_separator . implode($this->_title_separator, $this->_title_segments);
+			$this->_template_data['title'] .= implode($this->_title_separator, array_reverse($this->_title_segments)) . $this->_title_separator;
 		}
+		$this->_template_data['title'] .= $this->_base_title;
 		
 		$this->_template_data['stylesheets'] = '';
 		foreach ($this->_stylesheets as $stylesheet)
