@@ -132,6 +132,29 @@ class Template
 		$this->_CI->load->view($this->_template_name, $this->_template_data);
 	}
 	
+	public function load_partial($data, $partial_view)
+	{
+		if (empty($data))
+		{
+			return FALSE;
+		}
+
+		$ret = '';		
+		if (array_key_exists(0, $data) && is_array($data))
+		{
+			foreach ($data as $row)
+			{
+				$ret .= $this->_CI->load->view($partial_view, $row, TRUE) . "\r\n";
+			}
+		}
+		else
+		{
+			$ret .= $this->_CI->load->view($partial_view, $data, TRUE) . "\r\n";
+		}
+		
+		return $ret;
+	}
+	
 	/**
 	 * Set the base title
 	 *
