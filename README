@@ -1,3 +1,8 @@
+==UPDATE==
+There is now a config item for an application-wide JavaScript include. This script will be placed after all other JavaScript includes.
+
+
+
 This is my take on a template library for CodeIgniter. I've been using it for a while now, and I think I'm happy enough with it to share it. You can do things like add title segments, javascript/css includes, and configure a lot of things.
 
 I've documented the files a bit, but if there are any questions feel free to ask. 
