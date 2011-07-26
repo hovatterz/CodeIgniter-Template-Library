@@ -9,8 +9,10 @@ $config['_template_data'] = array();
 // Assets dir with trailing slash /
 $config['_assets_dir'] = '_assets/';
 
+$config['_application_javascript_file'] = 'custom.js';
+
 // Title
-$config['_base_title'] = 'example.com';
+$config['_base_title'] = 'CSP Associates';
 
 // Title Separator
-$config['_title_separator'] = ' // ';
+$config['_title_separator'] = ' | ';

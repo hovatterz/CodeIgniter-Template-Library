@@ -128,6 +128,7 @@ class Template
 		{
 			$this->_template_data['javascripts'] .= '<script src="' . $javascript . '" type="text/javascript"></script>' . "\r\n";
 		}
+		$this->_template_data['javascripts'] .= '<script src="' . base_url() . $this->_assets_dir . 'js/' . $this->_application_javascript_file . '" type="text/javascript"></script>' . "\r\n";
 		
 		$this->_CI->load->view($this->_template_name, $this->_template_data);
 	}
